@@ -97,7 +97,7 @@ app.get('/resetPassword/:token', type, (req, res) => {
             res.redirect(`http://localhost:3000/`);
         });
     } catch (e) {
-        res.send('error');
+        res.send(e);
     }
 });
 
