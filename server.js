@@ -1,6 +1,6 @@
 const app = require('express')();
 const server = require('http').createServer(app);
-const options = { origins:"https://mini-telegram.herokuapp.com/", credentials:true, pingTimeout: 5000, pingInterval: 10000 };
+const options = { origins:"http:/localhost:3000", credentials:true, pingTimeout: 5000, pingInterval: 10000 };
 const io = require('socket.io')(server, options);
 const multer = require('multer')
 const bodyParser = require("body-parser");
@@ -10,16 +10,6 @@ const nodemailer = require('nodemailer');
 const secretJWT = "this is chat app";
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt')
-
-/*io.on("connection", socket => {
-    console.log(socket)
-    io.on('disconnect', socket => {
-        console.log('disconect');
-        console.log(socket)
-    })
-})*/
-
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
