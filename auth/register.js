@@ -39,7 +39,7 @@ function register(){
                                 {
                                     expiresIn: '1d',
                                 }, (err, emailToken) => {
-                                    const url = `http://localhost:5000/confirmation/${emailToken}`;
+                                    const url = `https://chatapp-backend-telegram.herokuapp.com/confirmation/${emailToken}`;
                                     let html_text = `Будь ласка перейдіть за <a href="${url}">даним посиланням</a>  щоб підтвердити Ваш e-mail адрес.`;
                                     let subject_text = "Підтвердження емайла";
                                     transporter.sendMail({

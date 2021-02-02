@@ -25,7 +25,7 @@ function resetPassword(){
                 {
                     expiresIn: '1h',
                 }, (err, emailToken) => {
-                    const url = `http://localhost:5000/resetPassword/${emailToken}`;
+                    const url = `https://chatapp-backend-telegram.herokuapp.com/resetPassword/${emailToken}`;
                     let html_text = `Ваш новий пароль ${new_password} </br> Будь ласка перейдіть за <a href="${url}">даним посиланням</a>  щоб підтвердити зміну паролю.`;
                     let subject_text = "Підтвердження зміни пароля";
                     transporter.sendMail({
