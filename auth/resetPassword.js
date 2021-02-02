@@ -35,7 +35,7 @@ function resetPassword(){
                         html: html_text
                     }, function (err, info) {
                         if (err) {
-                            return res.json({status: "error"})
+                            return res.json({status: "errorrrr"})
                         }
                         else
                             return res.json({status:"ok"});       
