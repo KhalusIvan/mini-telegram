@@ -9,7 +9,7 @@ import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
 function App() { 
-  let history = useHistory()
+  let history = useHistory();
   let token = localStorage.getItem('token')
   if (token) (
     history.push(`/messenger`)
