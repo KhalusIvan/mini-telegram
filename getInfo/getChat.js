@@ -24,7 +24,7 @@ function getChat(){
                 if (err) return console.log(err);
                 let chatReturn = {};
                 chatReturn._id = resp[0]._id
-                if (respUser[0].avatar != null)
+                if (respUser[0] !== undefined && respUser[0].avatar !== null)
                     chatReturn.avatar = respUser[0].avatar.buffer;
                 else
                     chatReturn.avatar = respUser[0].avatar;
