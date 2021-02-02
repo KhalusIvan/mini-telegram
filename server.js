@@ -1,7 +1,17 @@
 const app = require('express')();
 const cors = require('cors')
 const server = require('http').createServer(app);
-const options = { origins:["http://localhost:3000/", 'https://mini-telegram.herokuapp.com/', "https://mini-telegram.herokuapp.com"], credentials:true, pingTimeout: 5000, pingInterval: 10000 };
+const options = { origins:["http://localhost:3000/", 'https://mini-telegram.herokuapp.com/', "https://mini-telegram.herokuapp.com"],
+ credentials:true, pingTimeout: 5000, pingInterval: 10000,
+ handlePreflightRequest: (req, res) => {
+    const headers = {
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Origin": '*',
+        "Access-Control-Allow-Credentials": true
+    };
+    res.writeHead(200, headers);
+    res.end();
+} };
 const io = require('socket.io')(server, options);
 const multer = require('multer')
 const bodyParser = require("body-parser");
