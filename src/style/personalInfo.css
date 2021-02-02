@@ -1,0 +1,70 @@
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    text-align: center;
+    width: 50%;
+    display: block;
+    margin: 10px auto 0px;
+    font-size: 20px;
+    color: white;
+    background-color: #007bff;
+    border: 1px solid white;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    border: 1px solid #007bff;
+    background-color: #2d91fc;
+}
+
+.inputfile + label {
+	cursor: pointer; 
+}
+
+.confirmButton {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 10px auto 0px;
+    font-size: 20px;
+    color: white;
+    background-color: #007bff;
+    border: 1px solid white;
+}
+
+.confirmButton:hover {
+    border: 1px solid #007bff;
+    background-color: #2d91fc;
+}
+
+input:focus {
+    box-shadow: none !important;
+}
+
+.border_false {
+    border: 2px solid red !important;
+}
+
+.border_true {
+    border: 2px solid rgb(5, 184, 5) !important;
+}
+
+.border_false_check {
+    border: 2px solid red !important;
+    animation: shake 0.2s ease-in-out 0s 2;
+    box-shadow: 0 0 0.5em red;
+}
+
+@keyframes shake {
+    0% { margin-left: 0rem; }
+    25% { margin-left: 0.5rem; }
+    75% { margin-left: -0.5rem; }
+    100% { margin-left: 0rem; }
+}

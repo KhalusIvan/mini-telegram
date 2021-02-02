@@ -1,0 +1,76 @@
+.label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: #394a56;
+  }
+  
+  .toggle {
+    isolation: isolate;
+    position: relative;
+    height: 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow:
+      -8px -4px 8px 0px #ffffff,
+      8px 4px 12px 0px #d1d9e6,
+      4px 4px 4px 0px #d1d9e6 inset,
+      -4px -4px 4px 0px #ffffff inset;
+  }
+  
+  .toggle-state {
+    display: none;
+  }
+  
+  .indicator {
+    height: 100%;
+    width: 200%;
+    background: #007bff;
+    border-radius: 15px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    box-shadow:
+      -8px -4px 8px 0px #ffffff,
+      8px 4px 12px 0px #d1d9e6;
+  }
+
+  .indicatorSignIn {
+    transition: all 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #007bff;
+    font-weight: bold;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 1;
+    
+    left:25%;
+  }
+
+  .indicatorRegister {
+    transition: all 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #007bff;
+    font-weight: bold;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    left:75%;
+    z-index: 1;
+  }
+  
+  .toggle-state:checked ~ .indicator {
+    transform: translate3d(25%, 0, 0);
+  }
+
+  .toggle-state:checked ~ .indicatorRegister {
+    transition: all 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .toggle-state:not(:checked) ~ .indicatorSignIn {
+    transition: all 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    color: #ffffff;
+    font-weight: 700;
+  }

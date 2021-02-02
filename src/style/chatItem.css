@@ -1,0 +1,35 @@
+.liElem:hover {
+    background-color: #e5e2e2;
+}
+
+.button_add_chat {
+    border:1px solid transparent;
+}
+
+.button_add_chat:hover {
+    border:1px solid black;
+    border-radius: 2px;
+}
+
+.button_add_chat:focus {
+    border:1px solid black !important;
+    border-radius: 2px;
+}
+
+.imageChatItem {
+    width: 25%;
+}
+
+.textChatItem {
+    width: 75%;
+}
+
+
+@media screen and (max-width: 576px) {
+    .imageChatItem {
+        width: 15%;
+    }
+    .textChatItem {
+        width: 80%;
+    }
+  }
