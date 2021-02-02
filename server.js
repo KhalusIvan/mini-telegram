@@ -1,6 +1,6 @@
 const app = require('express')();
 const server = require('http').createServer(app);
-const options = { origins:"https://mini-telegram.herokuapp.com", credentials:true, pingTimeout: 5000, pingInterval: 10000 };
+const options = { origins:"https://mini-telegram.herokuapp.com/", credentials:true, pingTimeout: 5000, pingInterval: 10000 };
 const io = require('socket.io')(server, options);
 const multer = require('multer')
 const bodyParser = require("body-parser");
