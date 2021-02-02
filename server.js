@@ -1,6 +1,5 @@
 const app = require('express')();
 const cors = require('cors')
-app.use(cors());
 const server = require('http').createServer(app);
 const options = { origins:["http://localhost:3000/", 'https://mini-telegram.herokuapp.com/', "https://mini-telegram.herokuapp.com"], credentials:true, pingTimeout: 5000, pingInterval: 10000 };
 const io = require('socket.io')(server, options);
@@ -12,6 +11,7 @@ const secretJWT = "this is chat app";
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt')
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
