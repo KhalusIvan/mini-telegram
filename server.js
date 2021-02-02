@@ -1,6 +1,6 @@
 const app = require('express')();
 const server = require('http').createServer(app);
-const options = { origins:"http://localhost:3000", credentials:true, pingTimeout: 5000, pingInterval: 10000 };
+const options = { origins:"https://mini-telegram.herokuapp.com", credentials:true, pingTimeout: 5000, pingInterval: 10000 };
 const io = require('socket.io')(server, options);
 const multer = require('multer')
 const bodyParser = require("body-parser");
@@ -80,7 +80,7 @@ app.get('/confirmation/:token', type, async (req, res) => {
       res.send('error');
     }
     const token = jwt.sign({email:userToConfirm.email, role:"user"}, secretJWT, {expiresIn: "2d"});
-    return res.redirect(`http://localhost:3000/confirm/${token}`);
+    return res.redirect(`https://mini-telegram.herokuapp.com/confirm/${token}`);
 });
 
 app.get('/resetPassword/:token', type, (req, res) => {
@@ -94,7 +94,7 @@ app.get('/resetPassword/:token', type, (req, res) => {
                 password: hash
                 }      
             });
-            res.redirect(`http://localhost:3000/`);
+            res.redirect(`https://mini-telegram.herokuapp.com`);
         });
     } catch (e) {
         res.send(e);
