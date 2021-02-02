@@ -25,7 +25,7 @@ function App() {
     transition: transitions.FADE
   }
   const io = require('socket.io-client');
-  const socket = io("https://chatapp-backend-telegram.herokuapp.com", { transport : ['websocket'] })
+  const socket = io("https://chatapp-backend-telegram.herokuapp.com/", { transport : ['websocket'] })
   return (
     <AlertProvider template={AlertTemplate} {...options}>
       <Proxy.Provider value="https://chatapp-backend-telegram.herokuapp.com">
