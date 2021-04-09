@@ -53,10 +53,18 @@ MongoClient.connect('mongodb+srv://vania:Hfqyscf10f@chatapp.r3ih8.mongodb.net/ch
 });
 
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
+    /*service: 'gmail',
     auth: {
         user: "vakhalus.work@gmail.com",
         pass: "YDRk.,bcnjr"
+    }*/
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
+    auth: {
+        user: 'vakhalus.work@gmail.com',
+        pass: 'YDRk.,bcnjr'
     }
 })
 module.exports.transporter = transporter;
