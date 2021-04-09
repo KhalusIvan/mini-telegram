@@ -49,10 +49,14 @@ function register(){
                                         html: html_text
                                     }, function (err, info) {
                                         if (err) {
+                                            console.log(err)
                                             return res.json({status: "error"})
                                         }
-                                        else
-                                            return res.json({status:"confirm", email:req.body.email});       
+                                        else {
+                                            console.log(info)
+                                            return res.json({status:"confirm", email:req.body.email}); 
+                                        }
+                                                  
                                     })
                                 })
                         }
