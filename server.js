@@ -1,8 +1,8 @@
 const app = require('express')();
 const cors = require('cors')
 const server = require('http').createServer(app);
-const options = { /*origins:["http://localhost:3000/", 'https://mini-telegram.herokuapp.com/', "https://mini-telegram.herokuapp.com"],
- credentials:true, pingTimeout: 5000, pingInterval: 10000,*/
+require('dotenv').config()
+const options = { 
  handlePreflightRequest: (req, res) => {
     const headers = {
         "Access-Control-Allow-Origin": '*',
@@ -17,7 +17,7 @@ const multer = require('multer')
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000;
 const nodemailer = require('nodemailer');
-const secretJWT = "this is chat app";
+const secretJWT = process.env.SECRETJWT;
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt')
 
@@ -44,7 +44,7 @@ server.listen(PORT, () => {
 var dbMongo;
 const MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('mongodb+srv://vania:Hfqyscf10f@chatapp.r3ih8.mongodb.net/chatApp?retryWrites=true&w=majority', function (err, client) {
+MongoClient.connect(process.env.MONGOURI, function (err, client) {
     if (err)
         return console.log(err);
     dbMongo = client.db('chatApp');
@@ -53,18 +53,13 @@ MongoClient.connect('mongodb+srv://vania:Hfqyscf10f@chatapp.r3ih8.mongodb.net/ch
 });
 
 let transporter = nodemailer.createTransport({
-    /*service: 'gmail',
-    auth: {
-        user: "vakhalus.work@gmail.com",
-        pass: "YDRk.,bcnjr"
-    }*/
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     requireTLS: true,
     auth: {
-        user: 'vakhalus.work@gmail.com',
-        pass: 'YDRk.,bcnjr'
+        user: process.env.EMAILUSER,
+        pass: process.env.EMAILPASS
     }
 })
 module.exports.transporter = transporter;
@@ -116,7 +111,8 @@ const {getInfo} = require("./getInfo/getInfo.js")
 const {updateInfo} = require("./updateInfo/updateInfo.js")
 const {resetPassword} = require("./auth/resetPassword.js")
 const {checkUser} = require("./auth/checkUser.js")
-const {startIO} = require("./socket.js")
+const {startIO} = require("./socket.js");
+const { proxy } = require('jquery');
 updateInfo();
 register();
 signIn();
